@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Karman Enterprises | Photocopy Machine Rental</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+    /* =========================
+    RESET & BASE
+    ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: #ffffff;
+    color: #0f172a;
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* =========================
+   NAVBAR – 3 COLUMN LAYOUT
+========================= */
+.header {
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    z-index: 1000;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.nav-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+/* LEFT */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.nav-left i {
+    color: #6366f1;
+}
+
+/* CENTER (ABSOLUTE = PERFECT CENTER) */
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.nav-center h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.nav-center span {
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* RIGHT */
+.nav-right {
+    display: flex;
+    gap: 26px;
+}
+
+.nav-right a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.nav-btn {
+    padding: 8px 18px;
+    background: #6366f1;
+    color: white !important;
+    border-radius: 999px;
+    font-size: 14px;
+}
+
+
+/* =========================
+   HERO (CENTERED & AIRY)
+========================= */
+.hero {
+    padding: 110px 0 90px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.hero h2 {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    max-width: 720px;
+    margin: auto;
+    font-size: 17px;
+    color: #64748b;
+}
+
+.btn {
+    margin-top: 32px;
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 999px;
+    background: #6366f1;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* =========================
+   SECTION HEADING (LIKE IMAGE)
+========================= */
+.section {
+    padding: 110px 0;
+    background: #fafafa;
+}
+
+.section.white {
+    background: #ffffff;
+}
+
+.section-tag {
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 999px;
+    background: #fde8f3;
+    color: #ec4899;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.section-title {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.section-underline {
+    width: 110px;
+    height: 4px;
+    margin: 16px auto 70px;
+    background: linear-gradient(90deg, #6366f1, #ec4899);
+    border-radius: 999px;
+}
+
+/* =========================
+   GRID & CARDS (SOFT FLOATING)
+========================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background: white;
+    padding: 44px 34px;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.04),
+        0 25px 60px rgba(15, 23, 42, 0.06);
+    transition: all 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card i {
+    font-size: 42px;
+    color: #6366f1;
+    margin-bottom: 18px;
+}
+
+.card h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 15px;
+    color: #64748b;
+}
+
+/* =========================
+   IMAGE CARDS (MACHINES)
+========================= */
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+/* =========================
+   CONTACT (MATCHES DESIGN)
+========================= */
+.contact {
+    padding: 120px 0;
+    background: #ffffff;
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    display: grid;
+    gap: 18px;
+}
+
+input, textarea {
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    font-size: 15px;
+}
+
+button {
+    padding: 16px;
+    border-radius: 999px;
+    border: none;
+    background: #6366f1;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* =========================
+   MAP
+========================= */
+.map {
+    width: 100%;
+    height: 380px;
+    border: none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    padding: 24px;
+    text-align: center;
+    background: #fafafa;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* =========================
+   WHATSAPP BUTTON
+========================= */
+.whatsapp {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background: #25D366;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp:hover {
+    transform: scale(1.1);
+}
+
+/* =========================
+   MOBILE REFINEMENT
+========================= */
+@media (max-width: 768px) {
+
+    .nav {
+        display: none;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .grid {
+        gap: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .nav-left {
+        display: none;
+    }
+
+    .nav-right {
+        display: none;
+    }
+
+    .nav-center {
+        position: static;
+        transform: none;
+    }
+
+    .nav-container {
+        justify-content: center;
+    }
+
+    .nav-center h1 {
+        font-size: 20px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container nav-container">
+
+        <!-- LEFT : ADDRESS -->
+        <div class="nav-left">
+            <i class="fas fa-location-dot"></i>
+            <span>5E-52, NIT Faridabad</span>
+        </div>
+
+        <!-- CENTER : BRAND -->
+        <div class="nav-center">
+            <h1>Karman Enterprises</h1>
+            <span>Photocopy Rental</span>
+        </div>
+
+        <!-- RIGHT : NAV -->
+        <nav class="nav-right">
+            <a href="#services">Services</a>
+            <a href="#machines">Machines</a>
+            <a href="#why">Why Us</a>
+            <a href="#contact" class="nav-btn">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<section class="hero">
+    <div class="container">
+        <h2>Reliable Photocopy Machine Rental Services</h2>
+        <p>
+            We provide high-performance photocopy machines on rent for offices,
+            schools, colleges, and businesses with affordable pricing and fast support.
+        </p>
+        <a href="#contact" class="btn">Get a Quote</a>
+    </div>
+</section>
+
+<section class="section" id="services">
+    <div class="container">
+        <h3>Our Services</h3>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-copy"></i>
+                <h4>Photocopy Rental</h4>
+                <p>Short & long-term rental plans as per your needs.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-building"></i>
+                <h4>Office Machines</h4>
+                <p>Ideal solutions for offices & institutions.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-tools"></i>
+                <h4>Maintenance</h4>
+                <p>Quick servicing & reliable technical support.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section white" id="machines">
+    <div class="container">
+        <h3>Our Photocopier Machines</h3>
+
+        <div class="grid">
+            <div class="card">
+                <img src="images/1.webp" alt="Photocopier Machine">
+                <h4>High-Speed Office Copier</h4>
+            </div>
+
+            <div class="card">
+                <img src="images/2.webp" alt="Photocopier Machine">
+                <h4>Commercial Photocopier</h4>
+            </div>
+
+            <div class="card">
+                <img src="images/3.webp" alt="Photocopier Machine">
+                <h4>Multi-Function Copier</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section white" id="why">
+    <div class="container" style="text-align:center">
+
+        <span class="section-tag">Why Choose Us</span>
+        <h2 class="section-title">Why Choose Karman Enterprises</h2>
+        <div class="section-underline"></div>
+
+        <div class="grid">
+
+            <div class="card">
+                <i class="fas fa-leaf"></i>
+                <h4>Eco Friendly Machines</h4>
+                <p>
+                    Energy-efficient photocopy machines that reduce power
+                    consumption and paper wastage.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-sliders"></i>
+                <h4>Flexible Rental Plans</h4>
+                <p>
+                    Customized short-term and long-term rental options
+                    as per your business needs.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-list"></i>
+                <h4>Wide Machine Range</h4>
+                <p>
+                    Multiple photocopier models including high-speed and
+                    multifunction devices.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-award"></i>
+                <h4>Trusted Service</h4>
+                <p>
+                    Reliable machines with fast servicing and dependable
+                    technical support.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="contact" id="contact">
+    <h3>Contact Us</h3>
+
+    <form action="mailto:mani.fbd@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="Name" placeholder="Your Name" required>
+        <input type="email" name="Email" placeholder="Your Email" required>
+        <input type="text" name="Phone" placeholder="Phone Number">
+        <textarea name="Message" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<section>
+    <iframe
+        class="map"
+        src="https://www.google.com/maps?q=28.4089,77.3178&output=embed">
+    </iframe>
+</section>
+
+<footer>
+    © 2026 Karman Enterprises. All Rights Reserved.
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a class="whatsapp" href="https://wa.me/919818519800" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
